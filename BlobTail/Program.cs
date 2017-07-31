@@ -16,7 +16,9 @@ namespace BlobTail
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var form = new Form1();
+            form.Text = $"Blob Tail {System.Reflection.Assembly.GetExecutingAssembly()?.GetName()?.Version}";
+            Application.Run(form);
         }
     }
 }
