@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobTail", "BlobTail\BlobTa
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstallBlobTail", "InstallBlobTail\InstallBlobTail.vdproj", "{94449C2E-3838-4946-B288-BB795DB798ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Scripts", "Build Scripts", "{F681D23F-71FE-4144-9A0B-A938E8C8012B}"
+	ProjectSection(SolutionItems) = preProject
+		ApplyVersionToAssemblies.ps1 = ApplyVersionToAssemblies.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
