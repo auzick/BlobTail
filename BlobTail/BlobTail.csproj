@@ -97,6 +97,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Icons\Icon.psd" />
+    <None Include="Installer\InstallBlobTail.msi" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -115,6 +116,7 @@
     <Content Include="Icons\bticon_otx_icon.ico" />
     <Content Include="Icons\Icon.gif" />
     <Content Include="Icons\icon_jwG_icon.ico" />
+    <Content Include="Installer\setup.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

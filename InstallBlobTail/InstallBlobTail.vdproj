@@ -130,6 +130,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_ED6E4BFFE8A417C32F32818EF3BBB723"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_AF25FCA5E41943A19D287C5D9E20C9B5"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -175,12 +181,6 @@
         "OwnerKey" = "8:_3E8CA1FCA3DE9DD106BC53B6A6DBC597"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_ED6E4BFFE8A417C32F32818EF3BBB723"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -189,7 +189,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\InstallBlobTail.msi"
+        "OutputFilename" = "8:..\\Installer\\InstallBlobTail.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -221,7 +221,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\InstallBlobTail.msi"
+        "OutputFilename" = "8:..\\BlobTail\\Installer\\InstallBlobTail.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -581,7 +581,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BlobTail"
         "ProductCode" = "8:{1624D4E8-B785-4B75-A5A6-62921EF117AF}"
-        "PackageCode" = "8:{F872CDB9-7926-435A-94B3-FA925FA4F181}"
+        "PackageCode" = "8:{57D5710B-6D92-4F11-97DE-F021A36D451D}"
         "UpgradeCode" = "8:{5F383064-D9B4-4E74-B140-7FE3BB418CEF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
