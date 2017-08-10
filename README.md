@@ -5,5 +5,5 @@ The application monitors append blobs in an Azure blob container, and continuall
 
 The application connects to an Azure storage account by connection string.
 
-Download the installer here:
+Download the installer here: https://github.com/auzick/BlobTail/tree/master/BlobTail/Installer 
  
