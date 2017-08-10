@@ -17,6 +17,9 @@
 # and then apply it to the assemblies
 $VersionRegex = "\d+\.\d+\.\d+\.\d+"
 
+#$Env:BUILD_SOURCESDIRECTORY = "E:\Proj\BlobTail"
+#$Env:BUILD_BUILDNUMBER = "Build BlobTail_0000.00.00.0"
+
 # If this script is not running on a build server, remind user to 
 # set environment variables so that this script can be debugged
 if(-not ($Env:BUILD_SOURCESDIRECTORY -and $Env:BUILD_BUILDNUMBER))
