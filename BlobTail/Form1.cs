@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -38,6 +39,8 @@ namespace BlobTail
 
         private CloudStorageAccount _storageAccount;
 
+        private UserData _userData;
+
         public CloudStorageAccount StorageAccount
         {
             get { return _storageAccount; }
@@ -59,15 +62,23 @@ namespace BlobTail
             var parameters = new object[] {};
             _tailWorker.RunWorkerAsync(parameters);
 
-            ConnectionString.Text = Settings.Default["StorageAccountConnectionString"].ToString();
-            if (!string.IsNullOrWhiteSpace(ConnectionString.Text))
-            {
-                StorageAccount = CloudStorageAccount.Parse(ConnectionString.Text);
-                EnumerateContainers();
-            }
+            //ConnectionString.Text = Settings.Default["StorageAccountConnectionString"].ToString();
+            //if (!string.IsNullOrWhiteSpace(ConnectionString.Text))
+            //{
+            //    StorageAccount = CloudStorageAccount.Parse(ConnectionString.Text);
+            //    EnumerateContainers();
+            //}
 
             ConnectButton.Enabled = true;
             StopButton.Enabled = false;
+
+            _userData = new UserData();
+            foreach (var conn in _userData.ConnectionStrings)
+            {
+                connstrCombo.Items.Add(conn);
+            }
+
+            connstrCombo.SelectionChangeCommitted += ConnstrCombo_SelectionChangeCommitted;
         }
 
         private void EnumerateContainers()
@@ -147,7 +158,7 @@ namespace BlobTail
             LogText.Text = "";
             _doReset = true;
 
-            ConnectionString.Enabled = false;
+            connstrCombo.Enabled = false;
             ConnectButton.Enabled = false;
             StopButton.Enabled = true;
         }
@@ -160,7 +171,7 @@ namespace BlobTail
                 _doReset = true;
                 LogText.Text = "";
 
-                ConnectionString.Enabled = true;
+                connstrCombo.Enabled = true;
                 ConnectButton.Enabled = true;
                 StopButton.Enabled = false;
             }
@@ -278,11 +289,27 @@ namespace BlobTail
             }
         }
 
+
+        private void ConnstrCombo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var cb = (ComboBox)sender;
+            _userData.UpateConnectionStrings(new List<string>(cb.Items.Cast<string>()));
+        }
+
+
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             try
             {
-                StorageAccount = CloudStorageAccount.Parse(ConnectionString.Text);
+                //StorageAccount = CloudStorageAccount.Parse(ConnectionString.Text);
+                if (!connstrCombo.Items.Contains(connstrCombo.Text))
+                {
+                    connstrCombo.Items.Add(connstrCombo.Text);
+                    _userData.UpateConnectionStrings(new List<string>(connstrCombo.Items.Cast<string>()));
+                    connstrCombo.SelectedIndex = connstrCombo.FindStringExact(connstrCombo.Text);
+                }
+
+                StorageAccount = CloudStorageAccount.Parse(connstrCombo.SelectedItem.ToString());
             }
             catch (Exception ex)
             {
@@ -325,8 +352,8 @@ namespace BlobTail
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Settings.Default["StorageAccountConnectionString"] = ConnectionString.Text;
-            Settings.Default.Save();
+            //Settings.Default["StorageAccountConnectionString"] = ConnectionString.Text;
+            //Settings.Default.Save();
         }
 
 

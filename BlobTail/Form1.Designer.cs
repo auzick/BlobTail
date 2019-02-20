@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.ConnectionString = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BlobListLabel = new System.Windows.Forms.Label();
             this.LogText = new System.Windows.Forms.TextBox();
@@ -39,6 +38,7 @@
             this.StopButton = new System.Windows.Forms.Button();
             this.FontBigger = new System.Windows.Forms.Label();
             this.FontSmaller = new System.Windows.Forms.Label();
+            this.connstrCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,14 +49,6 @@
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Connection string";
-            // 
-            // ConnectionString
-            // 
-            this.ConnectionString.Location = new System.Drawing.Point(106, 12);
-            this.ConnectionString.Name = "ConnectionString";
-            this.ConnectionString.Size = new System.Drawing.Size(374, 20);
-            this.ConnectionString.TabIndex = 1;
-            this.ConnectionString.Text = global::BlobTail.Properties.Settings.Default.StorageAccountConnectionString;
             // 
             // label2
             // 
@@ -153,11 +145,20 @@
             this.FontSmaller.Text = "-";
             this.FontSmaller.Click += new System.EventHandler(this.FontSmaller_Click);
             // 
+            // connstrCombo
+            // 
+            this.connstrCombo.FormattingEnabled = true;
+            this.connstrCombo.Location = new System.Drawing.Point(106, 12);
+            this.connstrCombo.Name = "connstrCombo";
+            this.connstrCombo.Size = new System.Drawing.Size(374, 21);
+            this.connstrCombo.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 474);
+            this.Controls.Add(this.connstrCombo);
             this.Controls.Add(this.FontSmaller);
             this.Controls.Add(this.FontBigger);
             this.Controls.Add(this.StopButton);
@@ -167,7 +168,6 @@
             this.Controls.Add(this.LogText);
             this.Controls.Add(this.BlobListLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ConnectionString);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "BlobTail";
@@ -180,7 +180,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox ConnectionString;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label BlobListLabel;
         private System.Windows.Forms.TextBox LogText;
@@ -190,6 +189,7 @@
         private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.Label FontBigger;
         private System.Windows.Forms.Label FontSmaller;
+        private System.Windows.Forms.ComboBox connstrCombo;
     }
 }
 
